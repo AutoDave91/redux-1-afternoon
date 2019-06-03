@@ -13,6 +13,13 @@ class Author extends Component {
     };
   }
 
+  // componentDidMount(){
+  //   store.subscribe(()=>{
+  //     this.setState({authorFirst: store.getState().first_name, authorLast: store.getState().last_name})
+      
+  //   })
+  // }
+
   handleAuthorFirstChange(nameVal) {
     this.setState({
       authorFirst: nameVal
@@ -26,10 +33,12 @@ class Author extends Component {
   }
   saveChanges() {
     // Send data to Redux state
+    console.log('inside function', this.state.authorFirst)
     store.dispatch({type:UPDATE_FIRST_NAME, payload: this.state.authorFirst});
     store.dispatch({type:UPDATE_LAST_NAME, payload: this.state.authorLast});
   }
   render() {
+    console.log(this.state.authorFirst)
     return (
       <div className="Author forms">
         <div className="input_container">
